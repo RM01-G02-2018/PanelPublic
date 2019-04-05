@@ -4,10 +4,7 @@ var imagenes = [];
 var idpublicaciones = { idpublic: "" };
 var eliminar = []
 var insertar = []
-// console.log("imagenes");
-// console.log(imagenes);
-// console.log("insertar");
-// console.log(insertar);
+
 
 const app = new Vue({
     el: '#app',
@@ -15,7 +12,7 @@ const app = new Vue({
         this.mostrar()
     },
     data: {
-        id: "",
+        id: '',
         contenido: '',
         titulo: '',
         autor: '',
@@ -54,16 +51,13 @@ const app = new Vue({
                 // insertar las imagenes obtenidas por el formulario al json imgs
                 imgs.img = reader.result
                 imgs.idpublic = idpublicaciones.idpublic
-                //    console.log(imagenes[0].idpublic);
                 // insertar  el json imgs al arreglo imagenes
                 imagenes.push(imgs);
-                // console.log(reader.result);
 
                 var imgPu = { img: "", id: "" }
                 // insertar las imagenes obtenidas por el formulario al json imgs
                 imgPu.img = reader.result
                 imgPu.id = idpublicaciones.idpublic
-                //    console.log(imagenes[0].idpublic);
                 // insertar  el json imgs al arreglo imagenes
                 insertar.push(imgPu);
 
@@ -78,8 +72,11 @@ const app = new Vue({
             axios.get('http://192.168.32.106/Publicaciones_eventos2/apiRest/public/api/publicaciones/lista')
                 .then(response => {
                     //asignarle al arreglo publicaciones la respuesta donde obtenemos todas las publicaciones
-                    this.publicaciones = response.data.public;
-                    // console.log( response);
+                    var ordenar = response.data.public
+                    ordenar.sort((a, b) => b.id - a.id);
+                    // console.log(ordenar);
+                    this.publicaciones = ordenar;
+                   
 
                 })
                 .catch(error => {
@@ -109,26 +106,21 @@ const app = new Vue({
         },
         ///////////////////////////
         /* Agregar publicacion  */
-     
         agregar: function (data) {
-            
             axios.post('http://192.168.32.106/Publicaciones_eventos2/apiRest/public/api/publicaciones/insertar', {
                 contenido: this.contenido,
                 titulo: this.titulo,
                 autor: this.autor,
                 imagenes: this.imagenes
             })
-
                 .then(response => {
-
-                    // console.log(response);
+                    console.log(response);
                     this.mostrar()
                 })
                 .catch(error => {
                     console.log(error);
                     alert(error)
                 })
-         
         },
         ///////////////////////////
         /* Eliminar Publicacion */
