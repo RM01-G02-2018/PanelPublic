@@ -206,10 +206,13 @@ tbody tr:nth-child(odd) {
   table tr {
     display: block;
     margin-bottom: .625em;
-    border: #cfd1d3 solid 1px; }
+    border: #afb0b1 solid 1px; }
   table #tr-tbody {
     -webkit-box-shadow: 0 10px 6px -6px #777;
-    box-shadow: 0 10px 6px -6px #777; }
+    box-shadow: 0 10px 6px -6px #777;
+    -webkit-box-shadow: 0 13px 6px -6px  #777;
+    box-shadow: 0 13px 6px -6px  #777;
+    margin-bottom: 1.5em; }
   table td {
     border-bottom: 1px solid #cfd1d3;
     display: block;
@@ -221,7 +224,8 @@ tbody tr:nth-child(odd) {
     float: left;
     font-weight: bold;
     text-transform: uppercase;
-    color: #4b4949; }
+    color: #4b4949;
+    color: #222222; }
   table td:last-child {
     border-bottom: 0; } }
 

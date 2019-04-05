@@ -9,19 +9,16 @@ var insertar = []
 // console.log("insertar");
 // console.log(insertar);
 
-
-
 const app = new Vue({
     el: '#app',
     created: function () {
         this.mostrar()
     },
     data: {
-        id: '',
-        autor: '',
-        titulo: '',
+        id: "",
         contenido: '',
-    
+        titulo: '',
+        autor: '',
         // imagenes = al arreglo de imagenes
         imagenes: imagenes,
         //arreglo obtenido al pulsar el boton actualizar
@@ -82,7 +79,7 @@ const app = new Vue({
                 .then(response => {
                     //asignarle al arreglo publicaciones la respuesta donde obtenemos todas las publicaciones
                     this.publicaciones = response.data.public;
-                    console.log( response);
+                    // console.log( response);
 
                 })
                 .catch(error => {
@@ -124,7 +121,7 @@ const app = new Vue({
 
                 .then(response => {
 
-                    console.log(response);
+                    // console.log(response);
                     this.mostrar()
                 })
                 .catch(error => {
@@ -205,7 +202,9 @@ const app = new Vue({
                 contenido: this.items.contenido,
                 titulo: this.items.titulo,
                 autor: this.items.autor,
-                imagenes: this.imagenes
+                imagenes: this.imagenes,
+                insertar: this.insertar
+                // imagenes: this.imagenes
             })
                 .then(response => {
                     console.log(response);

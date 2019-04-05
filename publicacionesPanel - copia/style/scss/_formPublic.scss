@@ -57,7 +57,6 @@ table {
   
   tbody tr:nth-child(even) {
     background-color: #fff;
-    // background-color: rgb(235, 233, 233);
   }
  
  
@@ -79,19 +78,20 @@ table {
       position: absolute;
       width: 1px;
       padding: 0;
-      // background: red!important
+     
     }
     table tr {
-      // border-bottom: 3px solid #e1e5e9;
-      // border-bottom: 4px solid #000000;
+  
       display: block;
       margin-bottom: .625em;
-      border: #cfd1d3 solid 1px
+      // border: #cfd1d3 solid 1px;
+      border: #afb0b1 solid 1px
 
     }
     table #tr-tbody{
       box-shadow: 0 10px 6px -6px #777;
-      // box-shadow: 0 10px 6px -6px rgb(20, 20, 20);
+      box-shadow: 0 13px 6px -6px  #777;
+      margin-bottom: 1.5em
     }
 
    
@@ -110,11 +110,11 @@ table {
       font-weight: bold;
       text-transform: uppercase;
       color: #4b4949;
-
+      color: rgb(34, 34, 34);
     }
     table td:last-child {
       border-bottom: 0;
-      // border-bottom: 1px solid #0763be;
+    
     }
  
   

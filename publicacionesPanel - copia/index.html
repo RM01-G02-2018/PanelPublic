@@ -46,10 +46,10 @@
                                 <a class="close btnCloseModel" data-dismiss="modal" href="">
                                     <i class="fas fa-times"></i>
                                 </a>
-                    
+
                                 <div class="headerForm">
                                     <h1> Nueva Publiacion</h1>
-    
+
                                 </div>
                                 <form action="#">
                                     <div class=" row filas">
@@ -72,17 +72,17 @@
                                             </label>
                                             <div class="container imgd" v-for="imagen in imagenes" accept="image/*">
 
-                                          
+
                                                 <img v-bind:src="imagen.img" class=" imgs rounded my-4 imagen" style="width:35%;">
                                                 <a class=" btnDeleteIMG " @click="borrar(imagen.img)">
                                                     <i class="fas fa-times-circle"></i>
                                                 </a>
-                                           
-                
+
+
                                             </div>
-                                            <input class="form-control" type="text" accept="image/*" v-model="imagenes">
-                                       
-                                            <!-- <input class="form-control" type="file" accept="image/*" onchange="encodeImageFileAsURL(this)"> -->
+                                            <!-- <input class="form-control" type="text" accept="image/*" v-model="imagenes"> -->
+
+                                            <input class="form-control" type="file" accept="image/*" onchange="encodeImageFileAsURL(this)">
                                         </div>
 
                                         <div class="form-group col-md-12">
@@ -92,9 +92,9 @@
                                             <textarea class="form-control" required v-model="contenido"></textarea>
                                         </div>
                                     </div>
-                                   
-                                    <button  type="submit"class="btnAGG" @click="agregar">Agregar</button>
-                                    <button type="reset" class="btnClose"  data-dismiss="modal">Cancelar</button>
+
+                                    <button type="submit" class="btnAGG" @click="agregar">Agregar</button>
+                                    <button type="reset" class="btnClose" data-dismiss="modal">Cancelar</button>
                                 </form>
                             </div>
 
@@ -137,17 +137,12 @@
                                         <label for="img">Imagen
                                             <span>*</span>
                                         </label>
-                                    
-                                                <div class="container imgd" v-for="imgs in imagenes">
-
-                                                        <img v-bind:src="imgs.img" class=" imgs rounded my-4 imagen" style="width:35%;">
-                                                        <a  class="btnDeleteIMG" @click="borrar2(imgs.img)">
-                                                            <i class="fas fa-times-circle"></i>
-                                                        </a>
-            
-                                                </div>
-                                        
-                                    
+                                        <div class="container imgd" v-for="imgs in imagenes">
+                                            <img v-bind:src="imgs.img" class=" imgs rounded my-4 imagen" style="width:35%;">
+                                            <a class="btnDeleteIMG" @click="borrar2(imgs.img)">
+                                                <i class="fas fa-times-circle"></i>
+                                            </a>
+                                        </div>
                                         <input class="form-control" type="file" name="img" accept="image/*" onchange="encodeImage(this)">
                                     </div>
                                     <div class="form-group col-md-12">
@@ -156,9 +151,9 @@
                                         </label>
                                         <textarea class="form-control" v-model="items.contenido"></textarea>
                                     </div>
-                                </div>                              
-                                <button class="submit btnMODI"  type="submit" @click="modificar(items.id)">Modificar</button>
-                                <button type="reset" class="btnClose"  data-dismiss="modal">Cancelar</button>
+                                </div>
+                                <button class="submit btnMODI" type="submit"  @click="modificar(items.id)" data-dismiss="modal">Modificar</button>
+                                <button type="reset" class="btnClose" data-dismiss="modal">Cancelar</button>
                             </form>
                         </div>
 
@@ -206,15 +201,24 @@
 
                         </td>
                         <td data-label="Editar" class="editar">
-                            <button class="btn btn-invoice">
-                                <i class="fas fa-eye"></i>
+                            <a href="">
+                                   Vista <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="" @click="elimina(item.id)">
+                                 Eliminar   <i class="fas fa-trash-alt"></i>
+                            </a>
+                            <a href=""  data-toggle="modal" data-target="#MODIPublic" @click="actualizar(item)">
+                                 Modificar   <i class="fas fa-edit"></i>
+                            </a>
+                            <!-- <button class="btn btn-invoice">
+                                    <i class="fas fa-eye"></i>
                             </button>
                             <button class="btn btn-invoice" @click="elimina(item.id)">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                             <button class="btn btn-invoice" data-toggle="modal" data-target="#MODIPublic" @click="actualizar(item)">
                                 <i class="fas fa-edit"></i>
-                            </button>
+                            </button> -->
                         </td>
                     </tr>
 
