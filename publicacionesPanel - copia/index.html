@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Publicaciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style/css/style.css" />
+
+
+</head>
+
+<body>
+    <div class="div" id="app">
+        <div>
+            <h1 class="text-uppercase">centro de desarollo de software</h1>
+            <button type="button" class="btn btn-secondary font-weight-bold" data-toggle="modal" data-target="#AGGPublic">Nuevo Usuario</button>
+
+        </div>
+
+        <!-- Modal -->
+        <div id="AGGPublic" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-header">
+                            <div class="form-container containerForm">
+                                <a class="close btnCloseModel" data-dismiss="modal" href="">
+                                    <i class="fas fa-times"></i>
+                                </a>
+                    
+                                <div class="headerForm">
+                                    <h1> Nueva Publiacion</h1>
+    
+                                </div>
+                                <form action="#">
+                                    <div class=" row filas">
+                                        <div class=" form-group  col-md-6">
+                                            <label for="autor"> Autor
+                                                <span>*</span>
+                                            </label>
+                                            <input class="form-control" type="text" name="autor" value="CDS Ahuachapan" required v-model="autor">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="titulo">Titulo
+                                                <span>*</span>
+                                            </label>
+                                            <input class="form-control" type="text" name="titulo" required v-model="titulo">
+                                        </div>
+
+                                        <div class="form-group col-md-12 ">
+                                            <label for="img">Imagen
+                                                <span>*</span>
+                                            </label>
+                                            <div class="container imgd" v-for="imagen in imagenes" accept="image/*">
+
+                                          
+                                                <img v-bind:src="imagen.img" class=" imgs rounded my-4 imagen" style="width:35%;">
+                                                <a class=" btnDeleteIMG " @click="borrar(imagen.img)">
+                                                    <i class="fas fa-times-circle"></i>
+                                                </a>
+                                           
+                
+                                            </div>
+                                            <input class="form-control" type="text" accept="image/*" v-model="imagenes">
+                                       
+                                            <!-- <input class="form-control" type="file" accept="image/*" onchange="encodeImageFileAsURL(this)"> -->
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="contenido">Contenido
+                                                <span>*</span>
+                                            </label>
+                                            <textarea class="form-control" required v-model="contenido"></textarea>
+                                        </div>
+                                    </div>
+                                   
+                                    <button  type="submit"class="btnAGG" @click="agregar">Agregar</button>
+                                    <button type="reset" class="btnClose"  data-dismiss="modal">Cancelar</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- The Modal  Modificar-->
+        <div id="MODIPublic" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <div class="form-container containerForm ">
+                            <a class="close btnCloseModel " data-dismiss="modal" href="">
+                                <i class="fas fa-times"></i>
+                            </a>
+                            <div class="headerForm">
+                                <h1> Modificar Publiacion</h1>
+                            </div>
+                            <form action="#">
+                                <div class=" row filas">
+                                    <div class=" form-group  col-md-6">
+                                        <label for="autor"> Autor
+                                            <span>*</span>
+                                        </label>
+                                        <input class="form-control" type="text" name="autor" value="CDS Ahuachapan" v-model="items.autor">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="titulo">Titulo
+                                            <span>*</span>
+                                        </label>
+                                        <input class="form-control" type="text" name="titulo" v-model="items.titulo">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="img">Imagen
+                                            <span>*</span>
+                                        </label>
+                                    
+                                                <div class="container imgd" v-for="imgs in imagenes">
+
+                                                        <img v-bind:src="imgs.img" class=" imgs rounded my-4 imagen" style="width:35%;">
+                                                        <a  class="btnDeleteIMG" @click="borrar2(imgs.img)">
+                                                            <i class="fas fa-times-circle"></i>
+                                                        </a>
+            
+                                                </div>
+                                        
+                                    
+                                        <input class="form-control" type="file" name="img" accept="image/*" onchange="encodeImage(this)">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="contenido">Contenido
+                                            <span>*</span>
+                                        </label>
+                                        <textarea class="form-control" v-model="items.contenido"></textarea>
+                                    </div>
+                                </div>                              
+                                <button class="submit btnMODI"  type="submit" @click="modificar(items.id)">Modificar</button>
+                                <button type="reset" class="btnClose"  data-dismiss="modal">Cancelar</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- tabla administrativa de las publicaciones  -->
+        <div class="container-fluid mt-5">
+            <table id="Topicos_Datatable">
+                <thead>
+                    <tr>
+                        <th class="tableID" scope="col">
+                            <label>ID</label>
+                        </th>
+                        <th scope="col">
+                            <label>Titulo</label>
+                        </th>
+                        <th scope="col">
+                            <label>Descripcion</label>
+                        </th>
+                        <th class="tableAutor" scope="col" style="width: 8%">
+                            <label>Autor</label>
+                        </th>
+                        <th scope="col">
+                            <label>Imagenes</label>
+                        </th>
+                        <th scope="col">
+                            <label>Editar</label>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="tr-tbody" v-for="item in publicaciones">
+                        <td class="tableID" scope="row" data-label="ID" scope="col">{{item.id}}</td>
+                        <td data-label="Titulo">{{item.titulo}}</td>
+                        <td data-label="Descripcion">{{item.contenido.substring(0,100)+" ..."}}</td>
+                        <td class="tableAutor" data-label="Autor">{{item.autor}}</td>
+                        <td data-label="imagen" class="row container ">
+                            <div class="py-1 col-md-6 col-sm-12 imgd" v-for="img in item.img">
+
+                                <img v-bind:src="img.img" class="imgs rounded imagen" style="width:80%;height: 90%;float:right;margin-right: 0">
+                            </div>
+
+                        </td>
+                        <td data-label="Editar" class="editar">
+                            <button class="btn btn-invoice">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-invoice" @click="elimina(item.id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            <button class="btn btn-invoice" data-toggle="modal" data-target="#MODIPublic" @click="actualizar(item)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="Index.js"></script>
+</body>
+
+</html>

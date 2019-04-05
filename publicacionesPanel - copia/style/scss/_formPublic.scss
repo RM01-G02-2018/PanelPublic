@@ -1,0 +1,121 @@
+
+  //       /*responsive*/
+  // @media only screen and (max-width: 360px) {
+  //         .btnIMG {       
+  //             position: absolute;                       
+  //             clear: both !important;         
+  //         }
+  // }
+
+
+
+/*estilo de la vista de la tabla de administrador de las publicaciones */
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+
+  }
+  
+
+  
+  table tr {
+    background-color: #fff;
+    border: 1px solid #e1e5e9;
+  
+    border-radius: 5px;
+
+  }
+  
+  table thead tr:first-child {
+    border: 1px solid #024380;
+  }
+  
+  table th {
+    padding: 1.625em 0;
+    text-align: center;
+    color: #494949;
+  }
+
+  table th {
+    text-transform: uppercase;
+    background: #024380;
+    color: #FFF;
+  }
+
+  
+  table tbody tr td .btn-invoice {
+    background: #024380;
+    color: #FFF;
+    border-radius: 5px;
+    z-index:0;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #fff;
+    // background-color: rgb(235, 233, 233);
+  }
+ 
+ 
+  tbody tr:nth-child(odd) {
+    background-color: #fff;
+  }
+
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      position: absolute;
+      width: 1px;
+      padding: 0;
+      // background: red!important
+    }
+    table tr {
+      // border-bottom: 3px solid #e1e5e9;
+      // border-bottom: 4px solid #000000;
+      display: block;
+      margin-bottom: .625em;
+      border: #cfd1d3 solid 1px
+
+    }
+    table #tr-tbody{
+      box-shadow: 0 10px 6px -6px #777;
+      // box-shadow: 0 10px 6px -6px rgb(20, 20, 20);
+    }
+
+   
+    table td {
+      border-bottom: 1px solid #cfd1d3;
+      // border-bottom: 1px solid #000000;
+      display: block;
+      text-align: right;
+      color: #9da9b9;
+      color: $primary;
+     
+    }
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #4b4949;
+
+    }
+    table td:last-child {
+      border-bottom: 0;
+      // border-bottom: 1px solid #0763be;
+    }
+ 
+  
+  }

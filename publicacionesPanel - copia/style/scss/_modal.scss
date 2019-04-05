@@ -1,0 +1,201 @@
+@media only screen and (max-width: 600px) {
+	h1 {
+	  font-size: 1.5rem;
+	}
+	img.imagen{
+		width: 75% !important;
+	}
+	.imgd{
+		display: inline-block;
+	
+		.btnDeleteIMG{
+				// background: white;;
+				cursor: pointer;							
+				// position: absolute;
+				// // top: 0%;
+				// right: 50%;
+			
+				// // margin-left: -7.8%;
+				// // transform: rotate(48.5deg);
+				// width: 10%;
+				// // background-color: rgba(255, 255, 255, 0.397);
+				// // clear: both !important;
+				i{
+					color: #000000;
+					font-size: 20px
+				}
+		}
+	}
+  }
+
+//   img.imagen{
+// 	width: 40% !important;
+// }
+  	.imgd{
+	
+		display: inline;
+		.btnDeleteIMG{
+				// background: white;;
+				cursor: pointer;							
+				// position: absolute;
+				// // top: 0%;
+				// right: 50%;
+			
+				// // margin-left: -7.8%;
+				// // transform: rotate(48.5deg);
+				// width: 10%;
+				// // background-color: rgba(255, 255, 255, 0.397);
+				// // clear: both !important;
+				i{
+					color: #000000;
+					font-size: 20px
+				}
+		}
+	}
+/*Modal de Modificacion*/
+#AGGPublic ,#MODIPublic {
+	.modal-dialog{
+		.modal-header{
+			padding:0;
+			/*Caja De Formulario*/ 
+			.containerForm {	
+						width: 100%;
+						background-color: #e4e4e4;
+						border-radius: 5px;
+						box-sizing: border-box;
+						//centrar la caja ya que 
+						//pueda que no tenga el 100% de la pantalla
+						margin: 0 auto;
+						transform: translate(0, 0);
+						transition: transform 800ms cubic-bezier(.45,-0.46,.31,1);		
+						&.applied {
+							transform: translate(0, -200%);
+						}	
+						.btnCloseModel {
+							color: #000000;
+							position: absolute;
+							cursor: pointer;
+							top: 10px;
+							right: 15px;
+							-webkit-backface-visibility: hidden;
+							backface-visibility: hidden;
+							transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+							transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+							transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+							transition-delay: 0.3s;
+							i{
+								font-size: 1.5em;
+							}			
+							}		
+					
+						.headerForm {
+							padding: 1rem;
+							box-sizing: border-box;
+							background-color: white;
+							text-align: center;
+							h1 {
+								color: $primary;
+								font-size: 28px;
+								font-weight: bolder;
+							}
+							p {
+								color: #555555;
+							}
+						}		
+						form {
+							position: relative;
+							padding: 2rem;
+							box-sizing: border-box;
+							text-align: center;			
+							.filas{		
+								box-sizing: border-box;
+								padding: 1rem 0;
+						
+								text-align: left;
+								&:first-child {
+									padding-top: 0;
+								}
+								.form-group {
+									box-sizing: border-box;
+									&:first-child {
+										padding-right: 1rem;
+									}
+									&:last-child {
+										padding-left: 1rem;
+									}
+									label {
+										width: 100%;
+										margin-bottom: 0.5rem;
+										display: inline-block;
+										position: relative;
+										color: #353232;
+										font-weight: bold;
+										font-size: 14px;
+										span {
+											color: $secondary;
+										}
+									}
+									
+									input,textarea {
+										border: none;
+										background: none;
+										background-color: rgb(255, 255, 255);
+										width: 100%;
+										height: auto;
+										border-radius: 3px;
+										box-sizing: border-box;
+										padding: 0.8rem 1rem;
+										color: lighten($primary, 10%);
+										font-weight: bolder;
+										font-size: 16px;
+										border: 2px white solid;
+										transition: border 200ms linear;
+										&.error {
+											border: 2px $error solid;
+										}
+										&.success {
+											border: 2px $success solid;
+										}
+										&:focus {
+											outline: none;
+										}
+									}																	
+								}
+							}
+							
+							.btnAGG,.btnClose,.btnMODI {
+								padding: 1rem 1.5rem;
+								background: none;
+								border: none;
+								border-radius: 30px;
+								background-color: $primary;
+								color: white;
+								text-transform: uppercase;
+								font-size: 14px;
+								font-weight: bold;
+								margin: 1rem auto .5rem auto;
+								display: inline-block;
+								cursor: pointer;
+								transition: all 400ms linear;
+								&:hover {
+									background-color: darken($primary, 10%);
+								}
+								&.disabled {
+									cursor: not-allowed;
+									background-color: lighten($primary, 30%);
+									&:hover {
+										background-color: lighten($primary, 30%);
+									}
+								}
+							}
+							.btnClose{
+								background: #7c7b7b
+							}
+						}
+					
+			}
+		}
+	}
+}
+
+
