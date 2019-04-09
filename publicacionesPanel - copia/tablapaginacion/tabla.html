@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <section id="app">
+        <!-- Resultados -->        
+        <ul class="list-group">
+            <li class="list-group-item text-center" v-for="user in users" v-show="(pag - 1) * NUM_RESULTS <= index  && pag * NUM_RESULTS > index">
+                {{ user.name }} - {{ user.email }}
+            </li>
+        </ul>
+        <!-- Controles -->        
+        <nav aria-label="Page navigation" class="text-center">
+            <ul class="pagination text-center">
+                <li>
+                    <a href="#" aria-label="Previous" v-show="pag != 1" @click.prevent="pag -= 1">
+                        <span aria-hidden="true">Anterior</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Next" v-show="pag * NUM_RESULTS / users.length < 1" @click.prevent="pag += 1">
+                        <span aria-hidden="true">Siguiente</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.1/vue.min.js"></script>
+    <!-- <script src="codigo.js"></script> -->
+    <script>
+     new Vue({
+            el: '#app',
+            data: {
+                NUM_RESULTS: 3, // Numero de resultados por página
+                pag: 1, // Página inicial
+                // JSON a mostrar
+                users: [
+                    {
+                        "id": 1,
+                        "name": "Leanne Graham",
+                        "email": "Sincere@april.biz"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Ervin Howell",
+                        "email": "Shanna@melissa.tv"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Clementine Bauch",
+                        "email": "Nathan@yesenia.net"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Patricia Lebsack",
+                        "email": "Julianne.OConner@kory.org"
+                    },
+                    {
+                        "id": 5,
+                        "name": "Chelsey Dietrich",
+                        "email": "Lucio_Hettinger@annie.ca"
+                    },
+                    {
+                        "id": 6,
+                        "name": "Mrs. Dennis Schulist",
+                        "email": "Karley_Dach@jasper.info"
+                    },
+                    {
+                        "id": 7,
+                        "name": "Kurtis Weissnat",
+                        "email": "Telly.Hoeger@billy.biz"
+                    },
+                    {
+                        "id": 8,
+                        "name": "Nicholas Runolfsdottir V",
+                        "email": "Sherwood@rosamond.me"
+                    },
+                    {
+                        "id": 9,
+                        "name": "Glenna Reichert",
+                        "email": "Chaim_McDermott@dana.io"
+                    },
+                    {
+                        "id": 10,
+                        "name": "Clementina DuBuque",
+                        "email": "Rey.Padberg@karina.biz"
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>

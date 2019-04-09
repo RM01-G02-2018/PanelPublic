@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+ <style>
+ @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono);
+
+#app {
+  font-family: 'Ubuntu Mono';
+  font-size: 1.3rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+thead {
+  color: white;
+  background-color: #5397b2;
+  cursor: pointer;
+}
+tr:nth-child(even) {
+  background-color: #eaeaea;
+}
+ </style>
+</head>
+<body>
+    <div id="app">
+        page {{ page_state }} / {{ last_page }}
+            <table>
+              <thead>
+              <tr>
+                <th @click="sort('name')"><a>name</a></th>
+                <th @click="sort('surname')"><a>surname</a></th>
+                <th @click="sort('age')"><a>age</a></th>
+                <th @click="sort('gender')"><a>sex</a></th>
+                <th @click="sort('_id')"><a>hash</a></th>
+                <th><a>action</a></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>
+              <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>
+              <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>    <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>    <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>    <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>    <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>    <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>    <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>    <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>    <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>    <tr >
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user._id}}</td>
+                <td><button @click="delete_item(user._id)">Delete</button></td>
+              </tr>
+              </tbody>
+            </table>
+                 page {{ page_state }} / {{ last_page }}
+            <p>
+              <button @click="prev_page">Previous</button> 
+              <button @click="next_page">Next</button>
+            </p>
+        <!-- state: sort={{ sort_state }}, dir={{ sort_dir_state }}, page={{ page_state }} -->
+            </div>
+
+            <script>
+                const alphanum = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+                function rand__id() {
+                var _id = "";
+                for (var i = 0; i < 24; i++) {
+                    _id += alphanum.charAt(Math.floor(Math.random() * alphanum.length));
+                }
+                return _id;
+                }
+
+                function rand_age() {
+                return Math.floor(Math.random()*60 + 18);
+                }
+
+                var app = new Vue({
+                el: '#app',
+                data: {
+                    users: [],
+                    sort_state: 'name',
+                    sort_dir_state: 'asc',
+                    page_size: 20,
+                    data_size: 100,
+                    page_state: 1,
+                    last_page: 0
+                },
+                created() {
+                    console.log(this.users);
+                    fetch('https://uinames.com/api/?amount=' + this.data_size)
+                    .then(res => res.json())
+                    .then(res => {
+                    this.users = res;
+                    // this.users.push(res);
+                    for (let i = 0; i < this.users.length; i++) {
+                        this.users[i].age = rand_age();
+                        this.users[i]._id = rand__id();
+                    }
+                    this.last_page = this.data_size / this.page_size;
+                    })
+                    console.log(this.users);
+                },
+                methods: {
+                    sort(s) {
+                    //if s == current sort, reverse
+                    if (s === this.sort_state) {
+                        this.sort_dir_state = this.sort_dir_state === 'asc' ? 'desc' : 'asc';
+                    }
+                    this.sort_state = s;
+                    },
+                    delete_item(_id) {
+                    for (var i = this.users.length - 1; i >= 0; --i) {
+                        if (this.users[i]._id == _id) {
+                        this.users.splice(i,1);
+                        console.log("deleted");
+                        }
+                    }
+                    },
+                    next_page() {
+                    if ((this.page_state * this.page_size) < this.users.length) this.page_state++;
+                    },
+                    prev_page() {
+                    if (this.page_state > 1) this.page_state--;
+                    }
+
+                },
+                computed: {
+                    sorted_users() {
+                    return this.users.sort((a,b) => {
+                        let modifier = 1;
+                        if (this.sort_dir_state === 'desc') modifier = -1;
+                        if (a[this.sort_state] < b[this.sort_state]) return -1 * modifier;
+                        if (a[this.sort_state] > b[this.sort_state]) return 1 * modifier;
+                        return 0;
+                    }).filter((row, index) => {
+                        let start = (this.page_state - 1) * this.page_size;
+                        let end = this.page_state * this.page_size;
+                        if (index >= start && index < end) return true;
+                    });
+                    }
+                }
+                })
+
+            </script>
+</body>
+</html>

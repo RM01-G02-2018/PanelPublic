@@ -83,18 +83,14 @@ table {
     table tr {
   
       display: block;
-      margin-bottom: .625em;
+      margin-bottom:1em;
       // border: #cfd1d3 solid 1px;
-      border: #afb0b1 solid 1px
-
-    }
-    table #tr-tbody{
+      // border: #afb0b1 solid 1px
       box-shadow: 0 10px 6px -6px #777;
       box-shadow: 0 13px 6px -6px  #777;
-      margin-bottom: 1.5em
     }
 
-   
+
     table td {
       border-bottom: 1px solid #cfd1d3;
       // border-bottom: 1px solid #000000;
@@ -102,6 +98,7 @@ table {
       text-align: right;
       color: #9da9b9;
       color: $primary;
+      // background: red
      
     }
     table td::before {

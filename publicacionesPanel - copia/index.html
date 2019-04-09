@@ -29,8 +29,13 @@
 <body>
     <div class="div" id="app">
         <div>
-            <h1 class="text-uppercase">centro de desarollo de software</h1>
-            <button type="button" class="btn btn-secondary font-weight-bold" data-toggle="modal" data-target="#AGGPublic">Nuevo Usuario</button>
+   
+            <h1 class="text-uppercase">
+                Panel de Administracion de Publicaciones 
+                <br> Centro de Desarollo de Software
+            </h1>
+            
+            <button type="button" class="btn btn-secondary font-weight-bold" @click="limpiar" data-toggle="modal" data-target="#AGGPublic">Nuevo Usuario</button>
 
         </div>
 
@@ -51,19 +56,21 @@
                                     <h1> Nueva Publiacion</h1>
 
                                 </div>
-                               <div class="formularioContainer" >
+                                <div class="formularioContainer">
                                     <div class=" row filas">
-                                        <div class=" form-group  col-md-6">
-                                            <label for="autor"> Autor
-                                                <span>*</span>
+                                        <div class=" form-group has-error  col-md-6">
+                                            <label for="autor" :style="stylePrueb"> Autor
+                                                <span v-if="autor">*</span>
                                             </label>
-                                            <input class="form-control" type="text" name="autor" value="CDS Ahuachapan" required v-model="autor">
+                                            <input id="autor" class="form-control" type="text" name="autor" value="CDS Ahuachapan" required v-model="autor">
+                                            <span v-if="!autor" class="text-danger"> Campo requerido *</span>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="titulo">Titulo
-                                                <span>*</span>
+                                                <span v-if="titulo">*</span>
                                             </label>
-                                            <input class="form-control" type="text" name="titulo" required v-model="titulo">
+                                            <input id="titulo" class="form-control" type="text" name="titulo" required v-model="titulo">
+                                            <span v-if="!titulo" class="text-danger"> Campo requerido *</span>
                                         </div>
 
                                         <div class="form-group col-md-12 ">
@@ -82,20 +89,21 @@
                                             </div>
                                             <!-- <input class="form-control" type="text" accept="image/*" v-model="imagenes"> -->
 
-                                            <input class="form-control" type="file" accept="image/*" @change="encodeImageFileAsURL">
+                                            <input id="imagess" class="form-control" type="file" accept="image/*" @change="encodeImageFileAsURL">
                                         </div>
 
                                         <div class="form-group col-md-12">
                                             <label for="contenido">Contenido
-                                                <span>*</span>
+                                                <span v-if="contenido">*</span>
                                             </label>
-                                            <textarea class="form-control" required v-model="contenido"></textarea>
+                                            <textarea id="contenido" class="form-control" required v-model="contenido"></textarea>
+                                            <span v-if="!contenido" class="text-danger"> Campo requerido *</span>
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btnAGG" @click="agregar">Agregar</button>
-                                    <button type="reset" class="btnClose" data-dismiss="modal">Cancelar</button>
-                                </div> 
+                                    <button type="submit" class="btnAGG" @click="agregar" >Agregar</button>
+                                    <button type="reset" class="btnClose"  data-dismiss="modal" @click="vaciarCampos">Cancelar</button>
+                                </div>
                             </div>
 
                         </div>
@@ -119,40 +127,43 @@
                             <div class="headerForm">
                                 <h1> Modificar Publiacion</h1>
                             </div>
-                            <div class="formularioContainer">
+                            <div class="formularioContainer" action="#">
                                 <div class=" row filas">
                                     <div class=" form-group  col-md-6">
                                         <label for="autor"> Autor
-                                            <span>*</span>
+                                            <span v-if="items.autor">*</span>
                                         </label>
                                         <input class="form-control" type="text" name="autor" value="CDS Ahuachapan" v-model="items.autor">
+                                        <span v-if="!items.autor" class="text-danger"> Campo requerido *</span>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="titulo">Titulo
-                                            <span>*</span>
+                                            <span v-if="items.titulo">*</span>
                                         </label>
                                         <input class="form-control" type="text" name="titulo" v-model="items.titulo">
+                                        <span v-if="!items.titulo" class="text-danger"> Campo requerido *</span>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="img">Imagen
                                             <span>*</span>
                                         </label>
-                                        <div class="container imgd" v-for="imgs in imagenes">
+                                        <div class="container imgd delete" v-for="imgs in imagenes">
                                             <img v-bind:src="imgs.img" class=" imgs rounded my-4 imagen" style="width:35%;">
-                                            <a class="btnDeleteIMG" @click="borrar2(imgs.img)">
+                                            <a class="btnDeleteIMG" @click="borrar2(imgs)">
                                                 <i class="fas fa-times-circle"></i>
                                             </a>
                                         </div>
-                                        <input class="form-control" type="file" name="img" accept="image/*" onchange="encodeImage(this)">
+                                        <input class="form-control" type="file" name="img" accept="image/*" @change="engetImage">
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="contenido">Contenido
-                                            <span>*</span>
+                                            <span v-if="items.contenido" >*</span>
                                         </label>
                                         <textarea class="form-control" v-model="items.contenido"></textarea>
+                                        <span v-if="!items.contenido" class="text-danger"> Campo requerido *</span>
                                     </div>
                                 </div>
-                                <button class="submit btnMODI" type="submit"  @click="modificar(items.id)" data-dismiss="modal">Modificar</button>
+                                <button class="submit btnMODI" type="submit" @click="modificar(items.id)" data-dismiss="modal">Modificar</button>
                                 <button type="reset" class="btnClose" data-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
@@ -164,7 +175,12 @@
 
         <!-- tabla administrativa de las publicaciones  -->
         <div class="container-fluid mt-5">
-            <table id="Topicos_Datatable">
+              <div class="row">
+                  <div class="col-md-4">
+                    <input type="text" class="form-control pull-right" id="search" placeholder="Escriba para buscar....">
+                  </div>
+              </div>
+            <table id="Table_Public" class="table table-hover">
                 <thead>
                     <tr>
                         <th class="tableID" scope="col">
@@ -187,35 +203,29 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr id="tr-tbody" v-for="item in publicaciones">
+                <tbody id="mytable">
+                    <tr id="tr-body"  v-for="item in publicaciones" >
                         <td class="tableID" scope="row" data-label="ID" scope="col">{{item.id}}</td>
                         <td data-label="Titulo">{{item.titulo}}</td>
                         <td data-label="Descripcion">{{item.contenido.substring(0,100)+" ..."}}</td>
                         <td class="tableAutor" data-label="Autor">{{item.autor}}</td>
-                        <td data-label="imagen" class="row container ">
-                            <div class="py-1 col-md-6 col-sm-12 imgd" v-for="img in item.img">
-
-                                <img v-bind:src="img.img" class="imgs rounded imagen" style="width:80%;height: 90%;float:right;margin-right: 0">
+                        <td data-label="imagen" class="  ">
+                            <div class="row ">
+                                <div class="py-1 col-lg-6 col-md-12 col-sm-12 imgd" v-for="img in item.img.slice(0,2)" >                                    
+                                    <img v-bind:src="img.img" class="imgs rounded imagen" style="width:100%;height: auto;float:right;margin:0;padding: 0">
+                                </div>
                             </div>
 
                         </td>
                         <td data-label="Editar" class="editar">
-                            <!-- <a href="">
-                                   Vista <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="" @click="elimina(item.id)">
-                                 Eliminar   <i class="fas fa-trash-alt"></i>
-                            </a>
-                            <a href=""  data-toggle="modal" data-target="#MODIPublic" @click="actualizar(item)">
-                                 Modificar   <i class="fas fa-edit"></i>
-                            </a> -->
-                            <button class="btn btn-invoice">
-                                    <i class="fas fa-eye"></i>
+                     
+                            <button class="btn btn-invoice" @click="verVista">
+                                <i class="fas fa-eye"></i>
                             </button>
                             <button class="btn btn-invoice" @click="elimina(item.id)">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
+                        
                             <button class="btn btn-invoice" data-toggle="modal" data-target="#MODIPublic" @click="actualizar(item)">
                                 <i class="fas fa-edit"></i>
                             </button>
@@ -224,6 +234,7 @@
 
                 </tbody>
             </table>
+            <!-- <ul class="pagination pagination-lg pager" id="myPager"></ul> -->
         </div>
     </div>
 
@@ -232,6 +243,23 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="Index.js"></script>
+   
+     <script>
+            // Write on keyup event of keyword input element
+            $(document).ready(function(){
+            $("#search").keyup(function(){
+            _this = this;
+            // Show only matching TR, hide rest of them
+            $.each($("#Table_Public tbody tr"), function() {
+            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+            $(this).hide();
+            else
+            $(this).show();
+            });
+            });
+           });
+    </script>
+ 
 </body>
 
 </html>

@@ -123,7 +123,7 @@
             #AGGPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group input.error, #AGGPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group textarea.error, #MODIPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group input.error, #MODIPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group textarea.error {
               border: 2px #e74c3c solid; }
             #AGGPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group input.success, #AGGPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group textarea.success, #MODIPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group input.success, #MODIPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group textarea.success {
-              border: 2px #228b22 solid; }
+              border: 2px #228c22 solid; }
             #AGGPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group input:focus, #AGGPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group textarea:focus, #MODIPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group input:focus, #MODIPublic .modal-dialog .modal-header .containerForm .formularioContainer .filas .form-group textarea:focus {
               outline: none; }
       #AGGPublic .modal-dialog .modal-header .containerForm .formularioContainer .btnAGG, #AGGPublic .modal-dialog .modal-header .containerForm .formularioContainer .btnClose, #AGGPublic .modal-dialog .modal-header .containerForm .formularioContainer .btnMODI, #MODIPublic .modal-dialog .modal-header .containerForm .formularioContainer .btnAGG, #MODIPublic .modal-dialog .modal-header .containerForm .formularioContainer .btnClose, #MODIPublic .modal-dialog .modal-header .containerForm .formularioContainer .btnMODI {
@@ -205,14 +205,11 @@ tbody tr:nth-child(odd) {
     padding: 0; }
   table tr {
     display: block;
-    margin-bottom: .625em;
-    border: #afb0b1 solid 1px; }
-  table #tr-tbody {
+    margin-bottom: 1em;
     -webkit-box-shadow: 0 10px 6px -6px #777;
     box-shadow: 0 10px 6px -6px #777;
     -webkit-box-shadow: 0 13px 6px -6px  #777;
-    box-shadow: 0 13px 6px -6px  #777;
-    margin-bottom: 1.5em; }
+    box-shadow: 0 13px 6px -6px  #777; }
   table td {
     border-bottom: 1px solid #cfd1d3;
     display: block;
