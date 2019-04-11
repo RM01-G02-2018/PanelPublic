@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Publicaciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <!-- ALERTAS PERSONALIZADAS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- navbar-->
+    <!-- <link rel="stylesheet" href="pe-icon-7-stroke/css/pe-icon-7-stroke.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="css/plugins.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Modernizer JS -->
+    <script src="js/modernizr-2.8.3.min.js"></script>
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="style/css/style.css" />
+
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+
+
+
+
+</head>
+
+<body>
+    <!-- barra de navegacion -->
+    <header class="header-area header-in-container clearfix">
+        <div class="header-bottom sticky-bar header-res-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-2 col-md-6 col-4">
+                        <div class="logo d-flex">
+                            <a href="#">
+                                <img alt="logo" src="img/logo/Proyectos_CDS.png" style="width: 85px;margin-top: -10px">
+                            </a>
+                            <a href="#">
+                                <img alt="logo" src="img/logo/logo-fundacion-borja.png" style="width:80px;">
+                            </a>
+                            <a href="#">
+                                <img alt="logo" src="img/logo/Logo_usaid.jpg" style="width:80px;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-10 d-none d-lg-block">
+                        <div class="main-menu">
+                            <nav class="d-flex justify-content-end">
+                                <ul>
+                                    <li>
+                                        <a href="#">Inicio
+                                            <i class="fa fa-code"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">CPanel</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Eventos</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Login
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="submenu">
+                                            <li>
+                                                <a href="#">Mi Cuenta</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Login | Logout </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu-area">
+                    <div class="mobile-menu">
+                        <nav id="mobile-menu-active">
+                            <ul class="menu-overflow">
+                                <li>
+                                    <a href="#">Inicio
+                                        <i class="fa fa-code"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">CPanel</a>
+                                </li>
+                                <li>
+                                    <a href="#">Eventos</a>
+                                </li>
+                                <li>
+                                    <a href="#">Login</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">my account</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Login / Logout </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="div" id="app">
+        <div class="encabezado">
+            <h1 class="text-uppercase">centro de desarollo de software</h1>
+            <!-- <button type="button" class="btn btn-secondary font-weight-bold" data-toggle="modal" data-target="#AGGPublic" @click="limpiar">Nueva Publicacion</button> -->
+            <button class="button-two" data-toggle="modal" data-target="#AGGPublic" @click="limpiar"><span> Nueva Publicacion</span></button>
+        </div>
+
+        <!-- Modal -->
+        <div id="AGGPublic" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-header">
+                            <div class="form-container containerForm">
+                                <a class="close btnCloseModel" data-dismiss="modal" href="">
+                                    <i class="fas fa-times"></i>
+                                </a>
+
+                                <div class="headerForm">
+                                    <h1> Nueva Publicacion</h1>
+
+                                </div>
+                                <div class="formularioContainer">
+                                    <div class=" row filas">
+                                        <div class=" form-group  col-md-6">
+                                            <label for="autor"> Autor
+                                                <span v-if="autor">*</span>
+                                            </label>
+                                            <input class="form-control" type="text" name="autor" value="CDS Ahuachapan" required v-model="autor">
+                                            <span v-if="!autor" class="text-danger"> Campo requerido*</span>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="titulo">Titulo
+                                                <span v-if="titulo">*</span>
+                                            </label>
+                                            <input class="form-control" type="text" name="titulo" required v-model="titulo">
+                                            <span v-if="!titulo" class="text-danger"> Campo requerido*</span>
+                                        </div>
+
+                                        <div class="form-group col-md-12 ">
+                                            <label for="img">Imagen
+                                                <span >*</span>
+                                            </label>
+                                            <div class="container imgd delete" v-for="imagen in imagenes">
+
+
+                                                <img v-bind:src="imagen.img" class=" imgs rounded my-4 imagen" style="width:35%;">
+                                                <a class="btnDeleteIMG delete" @click="borrar(imagen.img)">
+                                                    <i class="fas fa-times-circle"></i>
+                                                </a>
+
+
+                                            </div>
+                                            <!-- <input class="form-control" type="text" accept="image/*" v-model="imagenes"> -->
+
+                                            <input class="form-control" type="file" accept="image/*" @change="encodeImageFileAsURL">
+                                            <!-- <span v-if="!imagenes" class="text-danger"> Campo requerido*</span> -->
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="contenido">Contenido
+                                                <span v-if="contenido">*</span>
+                                            </label>
+                                            <textarea class="form-control" required v-model="contenido"></textarea>
+                                            <span v-if="!contenido" class="text-danger"> Campo requerido*</span>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btnAGG" @click="agregar" id="agre">Agregar</button>
+                                    <button type="reset" class="btnClose" @click="vaciarDatosForm">Cancelar</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- The Modal  Modificar-->
+        <div id="MODIPublic" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <div class="form-container containerForm ">
+                            <a class="close btnCloseModel " data-dismiss="modal" href="">
+                                <i class="fas fa-times"></i>
+                            </a>
+                            <div class="headerForm">
+                                <h1> Modificar Publicacion</h1>
+                            </div>
+                            <div class="formularioContainer">
+                                <div class=" row filas">
+                                    <div class=" form-group  col-md-6">
+                                        <label for="autor"> Autor
+                                            <span v-if="items.autor">*</span>
+                                        </label>
+                                        <input class="form-control" type="text" name="autor" value="CDS Ahuachapan" v-model="items.autor">
+                                        <span v-if="!items.autor" class="text-danger"> Campo requerido*</span>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="titulo">Titulo
+                                            <span v-if="items.titulo">*</span>
+                                        </label>
+                                        <input class="form-control" type="text" name="titulo" v-model="items.titulo">
+                                        <span v-if="!items.titulo" class="text-danger"> Campo requerido*</span>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="img">Imagen
+                                            <span>*</span>
+                                        </label>
+                                        <div class="container imgd delete " v-for="imgs in imagenes">
+                                            <img v-bind:src="imgs.img" class=" imgs rounded my-4 imagen delete" style="width:35%;">
+                                            <a class="btnDeleteIMG delete" @click="borrar2(imgs)">
+                                                <i class="fas fa-times-circle"></i>
+                                            </a>
+                                        </div>
+                                        <input class="form-control" type="file" name="img" accept="image/*" @change="getImage">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="contenido">Contenido
+                                            <span v-if="items.contenido">*</span>
+                                        </label>
+                                        <textarea class="form-control" v-model="items.contenido"></textarea>
+                                        <span v-if="!items.contenido" class="text-danger"> Campo requerido*</span>
+                                    </div>
+                                </div>
+                                <button class="submit btnMODI" type="submit" @click="modificar(items.id)" data-dismiss="modal">Modificar</button>
+                                <button type="reset" class="btnClose" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- The Modal  Eliminar-->
+
+
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-md-8 contenedor-redes-sociales">  
+                   	<!-- <a href="www.google.cl" target="_blank" class="boton">Pero que maravilla <span class="left"></span></a> -->
+                </div>
+                <!-- Buscador -->
+                <div class="col-md-4">
+                    <input type="text" class="form-control pull-right" id="search" placeholder="Escriba para buscar....">
+                </div>
+            </div>
+            <!--  -->
+            <!--TABLE administrativa de las publicaciones  -->
+            <table id="Table_Public" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="tableID" scope="col">
+                            <label>#</label>
+                        </th>
+                        <th scope="col">
+                            <label>Titulo</label>
+                        </th>
+                        <th scope="col">
+                            <label>Descripcion</label>
+                        </th>
+                        <th class="tableAutor" scope="col">
+                            <label>Autor</label>
+                        </th>
+                        <th scope="col" class="tableImg">
+                            <label>Imagenes</label>
+                        </th>
+                        <th scope="col">
+                            <label>Editar</label>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="mytable" class="data-container">
+                    <tr id="tr-tbody" v-for="(item, index) in publicaciones">
+                        <td class="tableID" scope="row" data-label="ID" scope="col">{{index+1}}</td>
+                        <td data-label="Titulo">{{item.titulo}}</td>
+                        <td data-label="Descripcion">{{item.contenido.substring(0,100)+" ..."}}</td>
+                        <td class="tableAutor" data-label="Autor">{{item.autor}}</td>
+                        <td data-label="imagen" class="imgTable">
+                            <div class="row w-100">
+                                <div class="py-1 col-md-6 col-sm-12 imgd" v-for="img in item.img.slice(0,2)">
+                                    <img v-bind:src="img.img" class="imgs rounded imagen" style="width:100%;height: auto;float:right;margin:0;padding: 0">
+                                </div>
+                            </div>
+                        </td>
+                        <td data-label="Editar" class="editar">
+
+                            </a>
+                            <button class="btn btn-invoice" target="_blank" @click="vermas(item.id)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-invoice" @click="elimina(item.id)" data-toggle="modal" data-target="#MOElimiar">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            <button class="btn btn-invoice" data-toggle="modal" data-target="#MODIPublic" @click="actualizar(item)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+    <!--=============================================JS========================================== -->
+
+    <!-- jQuery JS -->
+    <!-- <script src="js/jquery-1.12.4.min.js"></script> -->
+
+    <!-- Popper JS -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="js/plugins.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/scriptPublic.js"></script>
+
+    <script>
+        // Write on keyup event of keyword input element
+        $(document).ready(function () {
+            $("#search").keyup(function () {
+                _this = this;
+                // Show only matching TR, hide rest of them
+                $.each($("#Table_Public tbody tr"), function () {
+                    if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                        $(this).hide();
+                    else
+                        $(this).show();
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

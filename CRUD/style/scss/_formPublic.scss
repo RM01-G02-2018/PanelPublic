@@ -1,0 +1,173 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto|Roboto+Condensed');
+.encabezado{
+ 
+.button-two{
+  text-align: center;
+  cursor: pointer;
+  font-size:24px;
+  // margin: 0 0 0 100px;
+}
+/*Button Two*/
+.button-two {
+  border-radius: 4px;
+  background-color:$primary;
+  border: none;
+  padding: 20px;
+  // width: 100%;
+  transition: all 0.5s;
+  color: #fff
+}
+
+
+.button-two span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-two span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-two:hover span {
+  padding-right: 25px;
+}
+
+.button-two:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+}
+/*estilo de la vista de la tabla de administrador de las publicaciones */
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold
+
+  }
+  
+
+  
+  table tr {
+    background-color: #fff;
+    border: 1px solid #e1e5e9;
+    border-radius: 5px;
+  }
+  #Table_Public .tableID{
+    width:10%
+  }
+  #Table_Public .tableAutor{
+    width:10%;
+    // background: #494949
+  }
+
+  
+  table thead tr:first-child {
+    border: 1px solid #024380;
+  }
+  
+  table th {
+    padding: 1.625em 0;
+    text-align: center;
+    color: #494949;
+  }
+
+  table th {
+    text-transform: uppercase;
+    background: #024380;
+    color: #FFF;
+  }
+  table tbody tr td.editar,td.imgTable{
+    vertical-align: middle;
+  }
+  
+  table tbody tr td .btn-invoice {
+    background: #024380;
+    color: #FFF;
+    border-radius: 5px;
+    z-index:0;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #fff;
+  }
+ 
+ 
+  tbody tr:nth-child(odd) {
+    background-color: #fff;
+  }
+
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      position: absolute;
+      width: 1px;
+      padding: 0;
+     
+    }
+    table tr {
+  
+      display: block;
+      margin-bottom: .625em;   
+      border: #afb0b1 solid 1px
+    }
+    #Table_Public .tableID{
+      width:100%
+    }
+    #Table_Public .tableAutor{
+      width:100%
+    }
+    table #tr-tbody{
+      box-shadow: 0 10px 6px -6px #777;
+      box-shadow: 0 13px 6px -6px  #777;
+      margin-bottom: 1.5em
+    }
+
+   
+    table td {
+      border-bottom: 1px solid #cfd1d3;
+      // border-bottom: 1px solid #000000;
+      display: block;
+      text-align: right;
+      color: #9da9b9;
+      color: $primary;
+     
+    }
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+      // color: #4b4949;
+      color: rgb(34, 34, 34);
+    }
+    table td:last-child {
+      border-bottom: 0;
+    
+    }
+ 
+  
+  }
