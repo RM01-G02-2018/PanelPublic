@@ -1,58 +1,247 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
+// @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto|Roboto+Condensed');
-.encabezado{
- 
-.button-two{
-  text-align: center;
-  cursor: pointer;
-  font-size:24px;
-  // margin: 0 0 0 100px;
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+
+$cornflower-blue: #024380;
+$tundora: #4B4848;
+$snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
+::selection {
+  background: $cornflower-blue;
+  color: white;
+  text-shadow: none;
 }
-/*Button Two*/
-.button-two {
-  border-radius: 4px;
-  background-color:$primary;
-  border: none;
-  padding: 20px;
-  // width: 100%;
-  transition: all 0.5s;
-  color: #fff
+
+::-webkit-selection{
+  background: $cornflower-blue;
+  color: white;
+  text-shadow: none;
+}
+
+  .box-btnNewPublic{
+
+    .button-two{
+      display: inline-block !important;
+    
+      text-align: center;
+      cursor: pointer;
+      font-size:24px;
+      // margin-bottom:0 ;
+
+      // vertical-align: middle;
+
+      border-radius: 4px;
+      background-color:$primary;
+      border: none;
+      padding: 20px;
+      transition: all 0.5s;
+      color: #fff;
+      span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+        &:after {
+          content: '»';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    .button-two:hover span {
+      padding-right: 25px;
+      &:after {
+        opacity: 1;
+        right: 0;
+      }
+    }
+  }  
+
+.SearchPublic{
+  display: inline-block !important;
+// float: right;
+  // width: 50%;
+  // background: #024380;
+  .field-container {
+    float: right !important;
+    position: relative;
+    padding: 0;
+    // margin: auto auto;
+    border: 0;
+    width: 330px;
+    height: 45px;
+    // float: right;
+    .field {
+      border: 0;
+      width: 400px;
+      height: 100%;
+      padding: 10px 20px;
+      background: white;
+      border-radius: 3px;
+      box-shadow: 0px 8px 15px rgba($tundora, 0.1);
+      box-shadow: 0px 12px 15px rgba($tundora, 0.1);
+      transition: all 0.4s ease;
+      &:focus {
+        outline: none;
+        box-shadow: 0px 9px 20px rgba($tundora, 0.3);
+        + .icons-container {
+          .icon-close {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          .icon-search {
+            opacity: 0;
+            transform: translateX(200%);
+          }
+        }
+      }
+    }
+    .icons-container {
+      position: absolute;
+      top: 11px;
+      right: -25px;
+      width: 35px;
+      height: 35px;
+      overflow: hidden;
+      .icon-search {
+          position: relative;
+          top: 5px;
+          left: 8px;
+          width: 50%;
+          height: 50%;
+          opacity: 1;
+          border-radius: 50%;
+          border: 3px solid mix($cornflower-blue, white, 35%);
+          transition: opacity 0.25s ease, transform 0.43s $snappy;
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: -9px;
+            right: -2px;
+            width: 4px;
+            border-radius: 3px;
+            transform: rotate(-45deg);
+            height: 10px;
+            background-color: mix($cornflower-blue, white, 35%);
+          }
+        }
+      .icon-close {
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          width: 75%;
+          height: 75%;
+          opacity: 0;
+          cursor: pointer;
+          transform: translateX(-200%);
+          border-radius: 50%;
+          transition: opacity 0.25s ease, transform 0.43s $snappy;
+          &:before {
+            content: "";
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            border: 2px solid transparent;
+            border-top-color: $cornflower-blue;
+            border-left-color: $cornflower-blue;
+            border-bottom-color: $cornflower-blue;
+            transition: opacity 0.2s ease;
+          }
+          .x-up {
+            position: relative;
+            width: 100%;
+            height: 50%;
+            &:before {
+              content: "";
+              position: absolute;
+              bottom: 2px;
+              left: 3px;
+              width: 50%;
+              height: 2px;
+              background-color: $cornflower-blue;
+              transform: rotate(45deg);
+            }
+            &:after {
+              content: "";
+              position: absolute;
+              bottom: 2px;
+              right: 0px;
+              width: 50%;
+              height: 2px;
+              background-color: $cornflower-blue;
+              transform: rotate(-45deg);
+            }
+          }
+          .x-down {
+            position: relative;
+            width: 100%;
+            height: 50%;
+            &:before {
+              content: "";
+              position: absolute;
+              top: 5px;
+              left: 4px;
+              width: 50%;
+              height: 2px;
+              background-color: $cornflower-blue;
+              transform: rotate(-45deg);
+            }
+            &:after {
+              content: "";
+              position: absolute;
+              top: 5px;
+              right: 1px;
+              width: 50%;
+              height: 2px;
+              background-color: $cornflower-blue;
+              transform: rotate(45deg);
+            }
+          }
+          .is-type & {
+            &:before {
+              opacity: 1;
+              animation: spin 0.85s infinite;
+            }
+            .x-up {
+              &:before, &:after {
+                animation: color-1 0.85s infinite;
+              }
+              &:after {
+                animation-delay: 0.3s;
+              }
+            }
+            .x-down {
+              &:before, &:after {
+                animation: color-1 0.85s infinite;
+              }
+              &:before {
+                animation-delay: 0.2s;
+              }
+              &:after {
+                animation-delay: 0.1s;
+              }
+            }
+          }
+        }
+    }
+  }
 }
 
 
-.button-two span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
 
-.button-two span:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button-two:hover span {
-  padding-right: 25px;
-}
-
-.button-two:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
-}
 /*estilo de la vista de la tabla de administrador de las publicaciones */
-
 table {
     border: 1px solid #ccc;
     border-collapse: collapse;
-    margin: 0;
+    // margin: 0;
     padding: 0;
     width: 100%;
     table-layout: fixed;
@@ -114,6 +303,14 @@ table {
 
   
   @media screen and (max-width: 600px) {
+    // .SearchPublic{
+    //   // padding-bottom:3em;
+    //   margin-left: 0; 
+      // .field-container {
+      //   width: 200px !important;
+      
+      // }
+    // }
     table {
       border: 0;
     }
