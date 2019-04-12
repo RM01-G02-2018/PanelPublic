@@ -127,12 +127,11 @@
             </div>
         </div>
     </header>
+
     <div class="div" id="app">
         <div class="">
             <h1 class="text-uppercase">centro de desarollo de software</h1>
-            <!-- <button class="button-two" data-toggle="modal" data-target="#AGGPublic" @click="limpiar">
-                    <span> Nueva Publicacion</span>
-                </button> -->
+
         </div>
 
         <!-- Modal -->
@@ -269,90 +268,93 @@
                 </div>
             </div>
         </div>
-        <!-- The Modal  Eliminar-->
-<div class="">
-        <div class="box-btnNewPublic">
+
+
+  
+        <div class="">
+                  <!-- Boton de New Publicacion   -->
+            <div class="box-btnNewPublic">
                 <button class="button-two" data-toggle="modal" data-target="#AGGPublic" @click="limpiar">
-                        <span> Nueva Publicacion</span>
-                    </button>
+                    <span> Nueva Publicacion</span>
+                </button>
+            </div>
+
+                    <!-- Buscador de publicaciones-->
+            <div class=" SearchPublic mt-15">
+                <fieldset class="field-container">
+                    <input type="text" placeholder="Buscador de Publicacion..." class="field" id="search" />
+                    <div class="icons-container">
+                        <div class="icon-search"></div>
+                        <div class="icon-close">
+                            <div class="x-up"></div>
+                            <div class="x-down"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
         </div>
 
-        
-            <div class=" SearchPublic mt-15">
-                    <fieldset class="field-container">
-                        <input type="text" placeholder="Search..." class="field" id="search" />
-                        <div class="icons-container">
-                            <div class="icon-search"></div>
-                            <div class="icon-close">
-                                <div class="x-up"></div>
-                                <div class="x-down"></div>
+
+        <!--  -->
+        <!--TABLE administrativa de las publicaciones  -->
+        <table id="Table_Public" class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="tableID" scope="col">
+                        <label>#</label>
+                    </th>
+                    <th scope="col">
+                        <label>Titulo</label>
+                    </th>
+                    <th scope="col">
+                        <label>Descripcion</label>
+                    </th>
+                    <th class="tableAutor" scope="col">
+                        <label>Autor</label>
+                    </th>
+                    <th scope="col" class="tableImg">
+                        <label>Imagenes</label>
+                    </th>
+                    <th scope="col">
+                        <label>Editar</label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="mytable" class="data-container">
+                <tr id="tr-tbody" v-for="(item, index) in publicaciones">
+                    <td class="tableID" scope="row" data-label="ID" scope="col">{{index+1}}</td>
+                    <td data-label="Titulo">{{item.titulo}}</td>
+                    <td data-label="Descripcion">{{item.contenido.substring(0,100)+" ..."}}</td>
+                    <td class="tableAutor" data-label="Autor">{{item.autor}}</td>
+                    <td data-label="imagen" class="imgTable">
+                        <div class="row w-100">
+                            <div class="py-1 col-md-6 col-sm-12 imgd" v-for="img in item.img.slice(0,2)">
+                                <img v-bind:src="img.img" class="imgs rounded imagen" style="width:100%;height: auto;float:right;margin:0;padding: 0">
                             </div>
                         </div>
-                    </fieldset>
-            </div>
- 
-   
-</div>
-      
-       
-            <!--  -->
-            <!--TABLE administrativa de las publicaciones  -->
-            <table id="Table_Public" class="table table-hover">
-                <thead>
-                    <tr>
-                        <th class="tableID" scope="col">
-                            <label>#</label>
-                        </th>
-                        <th scope="col">
-                            <label>Titulo</label>
-                        </th>
-                        <th scope="col">
-                            <label>Descripcion</label>
-                        </th>
-                        <th class="tableAutor" scope="col">
-                            <label>Autor</label>
-                        </th>
-                        <th scope="col" class="tableImg">
-                            <label>Imagenes</label>
-                        </th>
-                        <th scope="col">
-                            <label>Editar</label>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="mytable" class="data-container">
-                    <tr id="tr-tbody" v-for="(item, index) in publicaciones">
-                        <td class="tableID" scope="row" data-label="ID" scope="col">{{index+1}}</td>
-                        <td data-label="Titulo">{{item.titulo}}</td>
-                        <td data-label="Descripcion">{{item.contenido.substring(0,100)+" ..."}}</td>
-                        <td class="tableAutor" data-label="Autor">{{item.autor}}</td>
-                        <td data-label="imagen" class="imgTable">
-                            <div class="row w-100">
-                                <div class="py-1 col-md-6 col-sm-12 imgd" v-for="img in item.img.slice(0,2)">
-                                    <img v-bind:src="img.img" class="imgs rounded imagen" style="width:100%;height: auto;float:right;margin:0;padding: 0">
-                                </div>
-                            </div>
-                        </td>
-                        <td data-label="Editar" class="editar">
+                    </td>
+                    <td data-label="Editar" class="editar">
 
-                            </a>
-                            <button class="btn btn-invoice" target="_blank" @click="vermas(item.id)">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="btn btn-invoice" @click="elimina(item.id)" data-toggle="modal" data-target="#MOElimiar">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                            <button class="btn btn-invoice" data-toggle="modal" data-target="#MODIPublic" @click="actualizar(item)">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </td>
+                        </a>
+                        <button class="btn btn-invoice" target="_blank" @click="vermas(item.id)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-invoice" @click="elimina(item.id)" data-toggle="modal" data-target="#MOElimiar">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        <button class="btn btn-invoice" data-toggle="modal" data-target="#MODIPublic" @click="actualizar(item)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </td>
 
-                    </tr>
+                </tr>
 
-                </tbody>
+            </tbody>
 
-            </table>
-        </div>
+        </table>
+    </div>
     </div>
 
     <!--=============================================JS========================================== -->

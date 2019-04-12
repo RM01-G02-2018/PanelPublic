@@ -3,17 +3,18 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 
-$cornflower-blue: #024380;
+// $primary: #024380;
 $tundora: #4B4848;
 $snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
 ::selection {
-  background: $cornflower-blue;
+  background: $primary;
+
   color: white;
   text-shadow: none;
 }
 
 ::-webkit-selection{
-  background: $cornflower-blue;
+  background: $primary;
   color: white;
   text-shadow: none;
 }
@@ -63,18 +64,17 @@ $snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
 
 .SearchPublic{
   display: inline-block !important;
-// float: right;
-  // width: 50%;
-  // background: #024380;
+
   .field-container {
+    font-family: 'Roboto', sans-serif;
     float: right !important;
     position: relative;
     padding: 0;
-    // margin: auto auto;
+    margin: auto auto;
     border: 0;
     width: 330px;
     height: 45px;
-    // float: right;
+  
     .field {
       border: 0;
       width: 400px;
@@ -83,11 +83,12 @@ $snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
       background: white;
       border-radius: 3px;
       box-shadow: 0px 8px 15px rgba($tundora, 0.1);
-      box-shadow: 0px 12px 15px rgba($tundora, 0.1);
+      box-shadow: 0px 12px 30px rgba($tundora, 0.1);
       transition: all 0.4s ease;
       &:focus {
         outline: none;
         box-shadow: 0px 9px 20px rgba($tundora, 0.3);
+        box-shadow: 0px 15px 20px rgba($tundora, 0.3);
         + .icons-container {
           .icon-close {
             opacity: 1;
@@ -115,7 +116,7 @@ $snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
           height: 50%;
           opacity: 1;
           border-radius: 50%;
-          border: 3px solid mix($cornflower-blue, white, 35%);
+          border: 3px solid mix($primary, white, 35%);
           transition: opacity 0.25s ease, transform 0.43s $snappy;
           &:after {
             content: "";
@@ -126,7 +127,7 @@ $snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
             border-radius: 3px;
             transform: rotate(-45deg);
             height: 10px;
-            background-color: mix($cornflower-blue, white, 35%);
+            background-color: mix($primary, rgb(163, 160, 160), 35%);
           }
         }
       .icon-close {
@@ -150,9 +151,9 @@ $snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
             height: 100%;
             opacity: 0;
             border: 2px solid transparent;
-            border-top-color: $cornflower-blue;
-            border-left-color: $cornflower-blue;
-            border-bottom-color: $cornflower-blue;
+            border-top-color: $primary;
+            border-left-color: $primary;
+            border-bottom-color: $primary;
             transition: opacity 0.2s ease;
           }
           .x-up {
@@ -166,7 +167,7 @@ $snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
               left: 3px;
               width: 50%;
               height: 2px;
-              background-color: $cornflower-blue;
+              background-color: $primary;
               transform: rotate(45deg);
             }
             &:after {
@@ -176,7 +177,7 @@ $snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
               right: 0px;
               width: 50%;
               height: 2px;
-              background-color: $cornflower-blue;
+              background-color: $primary;
               transform: rotate(-45deg);
             }
           }
@@ -191,7 +192,7 @@ $snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
               left: 4px;
               width: 50%;
               height: 2px;
-              background-color: $cornflower-blue;
+              background-color: $primary;
               transform: rotate(-45deg);
             }
             &:after {
@@ -201,7 +202,7 @@ $snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
               right: 1px;
               width: 50%;
               height: 2px;
-              background-color: $cornflower-blue;
+              background-color: $primary;
               transform: rotate(45deg);
             }
           }
@@ -250,8 +251,6 @@ table {
 
   }
   
-
-  
   table tr {
     background-color: #fff;
     border: 1px solid #e1e5e9;
@@ -265,7 +264,6 @@ table {
     // background: #494949
   }
 
-  
   table thead tr:first-child {
     border: 1px solid #024380;
   }
@@ -296,23 +294,28 @@ table {
     background-color: #fff;
   }
  
- 
   tbody tr:nth-child(odd) {
     background-color: #fff;
   }
 
   
   @media screen and (max-width: 600px) {
-    // .SearchPublic{
-    //   // padding-bottom:3em;
-    //   margin-left: 0; 
-      // .field-container {
-      //   width: 200px !important;
-      
-      // }
-    // }
+    .SearchPublic{
+   
+     margin-left: -15px;
+      .field-container {
+        margin-left: -10px;
+        width: 90% !important;
+        .field{
+          margin-left: -55px;
+          max-width: 280px!important;
+        }
+      }
+    }
     table {
       border: 0;
+      margin: 1% 0;
+      // margin-left: 5px;
     }
     table thead {
       border: none;

@@ -1,5 +1,4 @@
 
-
 //arreglo para mostrar las imagenes en los formularios de modificar y agregar
 var imagenes = [];
 // var simagenes = [];
@@ -74,11 +73,9 @@ const app = new Vue({
         },
 
         mostrar() {
-
-            axios.get('http://192.168.32.122/Publicaciones_eventos2/apiRest/public/api/publicaciones/lista')
+            axios.get('http://192.168.32.90/Publicaciones_eventos2/apiRest/public/api/publicaciones/lista')
                 .then(response => {
                     //asignarle al arreglo publicaciones la respuesta donde obtenemos todas las publicaciones
-
                     var ordenar = response.data.public
                     ordenar.sort((a, b) => b.id - a.id);
                     // console.log(ordenar);
@@ -115,7 +112,7 @@ const app = new Vue({
             if (this.contenido && this.titulo && this.autor && this.imagenes != null && this.imagenes != "") {
                 /*si los campos estan llenos  */
                 $("#agre").attr("data-dismiss", "modal");
-                axios.post('http://192.168.32.122/Publicaciones_eventos2/apiRest/public/api/publicaciones/insertar', {
+                axios.post('http://192.168.32.90/Publicaciones_eventos2/apiRest/public/api/publicaciones/insertar', {
                     contenido: this.contenido,
                     titulo: this.titulo,
                     autor: this.autor,
@@ -186,7 +183,7 @@ const app = new Vue({
                         'success'
                     )
 
-                    axios.get('http://192.168.32.122/Publicaciones_eventos2/apiRest/public/api/publicaciones/eliminar', {
+                    axios.get('http://192.168.32.90/Publicaciones_eventos2/apiRest/public/api/publicaciones/eliminar', {
                         params: {
                             id: id
                         }
@@ -283,7 +280,7 @@ const app = new Vue({
 
         modificar: function (id) {
 
-            axios.put('http://192.168.32.122/Publicaciones_eventos2/apiRest/public/api/publicaciones/modi', {
+            axios.put('http://192.168.32.90/Publicaciones_eventos2/apiRest/public/api/publicaciones/modi', {
 
                 id: id,
                 contenido: this.items.contenido,
@@ -312,9 +309,7 @@ const app = new Vue({
         /////////////////////////////////////    eliminar Publicacion   ///////////////////////////////////////////////
 
         vermas: function (id) {
-
             window.location.href = "../vista/Beta2.html?=" + id
-
         },
     }
 });

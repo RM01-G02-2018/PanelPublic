@@ -210,9 +210,11 @@
 .SearchPublic {
   display: inline-block !important; }
   .SearchPublic .field-container {
+    font-family: 'Roboto', sans-serif;
     float: right !important;
     position: relative;
     padding: 0;
+    margin: auto auto;
     border: 0;
     width: 330px;
     height: 45px; }
@@ -225,15 +227,17 @@
       border-radius: 3px;
       -webkit-box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
       box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
-      -webkit-box-shadow: 0px 12px 15px rgba(75, 72, 72, 0.1);
-      box-shadow: 0px 12px 15px rgba(75, 72, 72, 0.1);
+      -webkit-box-shadow: 0px 12px 30px rgba(75, 72, 72, 0.1);
+      box-shadow: 0px 12px 30px rgba(75, 72, 72, 0.1);
       -webkit-transition: all 0.4s ease;
       -o-transition: all 0.4s ease;
       transition: all 0.4s ease; }
       .SearchPublic .field-container .field:focus {
         outline: none;
         -webkit-box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
-        box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3); }
+        box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
+        -webkit-box-shadow: 0px 15px 20px rgba(75, 72, 72, 0.3);
+        box-shadow: 0px 15px 20px rgba(75, 72, 72, 0.3); }
         .SearchPublic .field-container .field:focus + .icons-container .icon-close {
           opacity: 1;
           -webkit-transform: translateX(0);
@@ -276,7 +280,7 @@
           -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
           height: 10px;
-          background-color: #a6bdd3; }
+          background-color: #6b7f95; }
       .SearchPublic .field-container .icons-container .icon-close {
         position: absolute;
         top: 2px;
@@ -432,8 +436,17 @@ tbody tr:nth-child(odd) {
   background-color: #fff; }
 
 @media screen and (max-width: 600px) {
+  .SearchPublic {
+    margin-left: -15px; }
+    .SearchPublic .field-container {
+      margin-left: -10px;
+      width: 90% !important; }
+      .SearchPublic .field-container .field {
+        margin-left: -55px;
+        max-width: 280px !important; }
   table {
-    border: 0; }
+    border: 0;
+    margin: 1% 0; }
   table thead {
     border: none;
     clip: rect(0 0 0 0);

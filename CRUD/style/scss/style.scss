@@ -2,11 +2,13 @@ $primary: #024380;
 $secondary: #2c3e50;
 $success: #228b22;
 $error: #e74c3c;
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed');
 // @import '_navBar.scss';
 @import '_modal.scss';
 @import '_formPublic.scss';
+
 body, html {
   background: #ffffff;
   font-family: 'Roboto', sans-serif;
